@@ -332,6 +332,10 @@ you should place your code here."
     web-mode-code-indent-offset 2
     web-mode-indent-style 2
     )
+  (define-key evil-normal-state-map (kbd ",w") 'save-buffer)
+  (define-key evil-normal-state-map (kbd ",q") 'kill-current-buffer)
+  (define-key evil-normal-state-map (kbd "H") 'evil-first-non-blank)
+  (define-key evil-normal-state-map (kbd "L") 'evil-end-of-line)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
