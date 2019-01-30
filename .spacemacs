@@ -333,7 +333,7 @@ you should place your code here."
     web-mode-indent-style 2
     )
   (define-key evil-normal-state-map (kbd ",w") 'save-buffer)
-  (define-key evil-normal-state-map (kbd ",q") 'kill-current-buffer)
+  (define-key evil-normal-state-map (kbd ",q") 'evil-quit)
   (define-key evil-normal-state-map (kbd "H") 'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "L") 'evil-end-of-line)
   (define-key evil-normal-state-map (kbd "U") 'redo)
