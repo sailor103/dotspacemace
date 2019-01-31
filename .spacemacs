@@ -143,7 +143,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Input Mono"
                                :size 16
-                               :weight Thin
+                               :weight thin
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
@@ -332,6 +332,16 @@ you should place your code here."
     web-mode-code-indent-offset 2
     web-mode-indent-style 2
     )
+
+  ;; hack js2-mode ,w mappings
+  ;; not work
+  ;; (define-key spacemacs-js2-mode-map (kbd "w") nil)
+  ;; (define-key spacemacs-js2-mode-map (kbd, "w") 'save-buffer)
+  ;; (define-key spacemacs-js2-mode-map "w" nil)
+  ;; (define-key spacemacs-js2-mode-map "w" 'save-buffer)
+  (require 'js2-mode)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "w" 'save-buffer)
+
   (define-key evil-normal-state-map (kbd ",w") 'save-buffer)
   (define-key evil-normal-state-map (kbd ",q") 'evil-quit)
   (define-key evil-normal-state-map (kbd "H") 'evil-first-non-blank)
