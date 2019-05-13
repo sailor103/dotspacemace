@@ -35,7 +35,8 @@ values."
      yaml
      nginx
      groovy
-     html
+     (html :variables
+           web-fmt-tool 'prettier)
      typescript
      (javascript :variables
                  node-add-modules-path t
@@ -320,6 +321,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq ispell-program-name "aspell"
+        ;; aspell
+        ;; -C makes aspell accept run-together words
+        ;; --run-together-limit is maximum number of words that can be strung together.
+        ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=7")
+        )
   )
 
 (defun dotspacemacs/user-config ()
@@ -329,6 +336,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (add-to-list 'exec-path "/usr/local/bin/")
   (spacemacs/toggle-indent-guide-globally-on)
   (setq-default
     typescript-indent-level 2
@@ -351,7 +359,6 @@ you should place your code here."
     ;; disable lockfile
     create-lockfiles nil
     )
-
   ;; hack js2-mode ,w mappings
   ;; not work
   ;; (define-key spacemacs-js2-mode-map (kbd "w") nil)
